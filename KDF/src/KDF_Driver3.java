@@ -5,7 +5,7 @@ import org.junit.Test;
 public class KDF_Driver3 {
 	// Global Class Variables
 	String xTC[][], xTS[][]; 
-	String xlPath = "C:\\Training\\SDET-Nov2019\\KDF\\KDF2.xls";
+	String xlPath = "C:\\Training\\SDET-Nov2019\\KDF2.xls";
 	int xTC_r, xTS_r;
 	String vTCID, vTC_Execute;
 	String vTSID, vTS_KW, vTS_EID, vTS_TestData; 
@@ -51,7 +51,11 @@ public class KDF_Driver3 {
 					//See for a matching TCID 
 					if (vTCID.equals(vTSID)) {
 						System.out.println("    --- Keyword is " + vTS_KW);
-						SeleniumExecutor.runTestStep(vTS_KW, vTS_EID, vTS_TestData);
+						try {
+							SeleniumExecutor.runTestStep(vTS_KW, vTS_EID, vTS_TestData);
+						} catch (Exception e) {
+							System.out.println(">>>> Error " + e);
+						}
 					}
 				}
 
