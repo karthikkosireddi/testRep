@@ -5,7 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class SeleniumExecutor {
 	static WebDriver myD;
 
-	public static void runTestStep(String fKW, String fEID, String fTD) throws Exception{
+	public static String runTestStep(String fKW, String fEID, String fTD) throws Exception{
+		String testOutput;
 		// myD = fDriver;
 		/*
 		if (fKW.equals("openBrowser")) {
@@ -19,7 +20,7 @@ public class SeleniumExecutor {
 				} 
 		} 
 		*/
-		
+		testOutput = "Nothing";
 		switch (fKW) {
 			case "openBrowser" :
 				openBrowser(fTD);
@@ -46,12 +47,13 @@ public class SeleniumExecutor {
 				break;
 			
 			case "verifyText" :
-				verifyText(fEID, fTD);
+				testOutput = verifyText(fEID, fTD);
 				break;
 				
 			default :
 				System.out.println("Keyword is missing " + fKW);
 		}
+		return testOutput;
 	}
 		
 	public static void openBrowser(String browserType) {
