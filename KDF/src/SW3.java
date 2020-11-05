@@ -6,14 +6,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 public class SW3 {
  WebDriver myD;
 	@Before // Gets executed before every test
 	public void myBeforeTest() throws InterruptedException {
     	System.out.println(">>>>>>>>> This is BEFORE my Test");
     	
-    	System.setProperty("webdriver.chrome.driver", "C:\\Training\\SDET-Nov2019\\KDF\\Drivers\\chromedriver.exe");
-    	
+    	//System.setProperty("webdriver.chrome.driver", "C:\\Training\\SDET-Nov2019\\KDF\\Drivers\\chromedriver.exe");
+    	System.setProperty("webdriver.chrome.driver", "C:\\Users\\Nasser\\eclipse-workspace\\Drivers\\chromedriver.exe");
     	myD = new ChromeDriver();
     	myD.manage().window().maximize();
     	myD.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -62,7 +63,7 @@ Thread.sleep(1000);  	myD.findElement(By.id("LandingAirBookingSearchForm_origina
   myD.findElement(By.id("LandingAirBookingSearchForm_destinationAirportCode--item-1")).click();
   
   myD.findElement(By.id("LandingAirBookingSearchForm_departureDate")).click();
-  myD.findElement(By.id("calendar-253-2019-12-23")).click();
+  myD.findElement(By.id("calendar-256-2019-10-23")).click();
   
   Thread.sleep(1000);
   
