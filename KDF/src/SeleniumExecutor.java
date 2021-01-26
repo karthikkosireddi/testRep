@@ -1,4 +1,11 @@
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.logging.FileHandler;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -58,7 +65,11 @@ public class SeleniumExecutor {
 		
 	public static void openBrowser(String browserType) {
 	
-		 System.setProperty("webdriver.chrome.driver", "C:\\Drivers\\chromedriver.exe");
+		 //System.setProperty("webdriver.chrome.driver", "C:\\Drivers\\chromedriver.exe");
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Nasser\\eclipse-workspace\\Drivers\\chromedriver.exe");
+		
+		
 		 myD = new ChromeDriver();
 			 
 	}
@@ -91,5 +102,11 @@ public class SeleniumExecutor {
 		} else {
 			return "Fail";
 		}
+	}
+	
+	public static void takeAScreenShot(String tcID, String tsID) throws IOException {
+		File scrFile = ((TakesScreenshot)myD).getScreenshotAs(OutputType.FILE);
+		//FileUtils.copyFile(scrFile, new File("C:\\Users\\Nasser\\git\\TestGit\\firstWebProj\\" + tcID + "_" + tsID + ".png"));
+		com.google.common.io.Files.copy(scrFile, new File("C:\\Users\\Nasser\\git\\TestGit\\firstWebProj\\ScrnShot\\" + tcID + "_" + tsID + ".png"));
 	}
 }
